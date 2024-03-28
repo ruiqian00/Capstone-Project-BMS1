@@ -9,7 +9,6 @@ Original file is located at
 
 from google.colab import drive
 drive.mount('/content/drive')
-
 from google.colab.patches import cv2_imshow
 
 import cv2
