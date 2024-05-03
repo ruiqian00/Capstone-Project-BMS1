@@ -34,7 +34,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     transform = main_transformations()
-    test_dir = './test'
     dataset = ImageDataset(args.test_dir, transform=transform)
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
     
