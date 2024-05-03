@@ -19,6 +19,8 @@ The end goal of the project is to create a phase diagram that shows the concentr
 Upload a folder with 96 images, resembling the 96 well-plate. Label each image with **excipientname_numberinwellplate**. 
 First, create and set up the conda environment 
 
+The trained Swin Transformer model can be downloaded at https://drive.google.com/file/d/14GmQf5JnUH9pgb9su_0ke8xTycGJzdgj/view?usp=drive_link
+
 `conda create -n <Your_environment_name> python=3.11`
 
 `pip install environment.yml`
