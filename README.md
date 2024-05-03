@@ -16,5 +16,17 @@ The end goal of the project is to create a phase diagram that shows the concentr
 
 ## How to use:
 
-Upload a folder with 96 images, resembling the 96 well-plate. Label each image with **excipientname_numberinwellplate**. Update the folder_path according in **train.py**.
+Upload a folder with 96 images, resembling the 96 well-plate. Label each image with **excipientname_numberinwellplate**. 
+First, create and set up the conda environment 
+
+`conda create -n <Your_environment_name> python=3.11`
+
+`pip install environment.yml`
+
+And then run 
+
+`python test.py --test_dir <Your Test Data Directory>`
+
+This will create a CSV file containing the file names and corresponding predictions.
+
 
