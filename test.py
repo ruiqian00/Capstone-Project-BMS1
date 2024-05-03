@@ -9,6 +9,7 @@ import torchvision.transforms as transforms
 
 from PIL import Image
 import torchvision.transforms.functional as TF
+import argparse
 
 class ImageDataset(Dataset):
     def __init__(self, directory, transform=None):
@@ -28,9 +29,13 @@ class ImageDataset(Dataset):
     
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('--test_dir', type=str, default='./test', help='Directory to test images')
+    args = parser.parse_args()
+
     transform = main_transformations()
     test_dir = './test'
-    dataset = ImageDataset(test_dir, transform=transform)
+    dataset = ImageDataset(args.test_dir, transform=transform)
     dataloader = DataLoader(dataset, batch_size=1, shuffle=False)
     
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -54,7 +59,7 @@ if __name__ == "__main__":
 
         for filename, pred in zip(filenames, predicted_classes):
             results.append([filename, pred])
-            
+
     df = pd.DataFrame(results, columns=['Filename', 'Class'])
     class_dict = {0: 'clear', 1: 'empty', 2: 'pure', 3: 'rest'}
     df['Class'] = df['Class'].map(class_dict)
